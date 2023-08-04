@@ -1,0 +1,32 @@
+<!-- Agregar el enlace al CSS de Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<div class="container mt-4" style="width: 130px;align-items: left;justify-content: left;margin-left: 40px;">
+    <div class="card mb-3">
+        <button class="btn btn-success btn-block text-left btn-icon-only" [matMenuTriggerFor]="menu"
+            style="width: 120%;">
+            <i class="material-icons">account_circle</i> Mi Perfil
+        </button>
+        <mat-menu #menu="matMenu" class="profile-menu estile">
+            <div class="card-header">
+                <h6 class="profile-name"> {{nombreUser}}</h6>
+                <span class="profile-email"> {{correoUser}} </span>
+            </div>
+            <div class="card-body">
+                <button class="btn btn-success" routerLink="/profileUser/{{idUser}}">
+                    <i class="material-icons"> manage_accounts</i>
+                    Ver Perfil
+                </button>
+                <button class="btn btn-success" style="margin-top: 10px;" routerLink="/resetPass/{{idUser}}">
+                    <i class="material-icons">key</i>
+                    Cambiar contraseña
+                </button>
+                <hr>
+                <button class="btn btn-success btn-sm" (click)="cerrarSesion()">
+                    <i class="material-icons">exit_to_app</i>
+                    Cerrar sesión
+                </button>
+            </div>
+        </mat-menu>
+    </div>
+</div>
