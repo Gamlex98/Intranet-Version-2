@@ -47,7 +47,11 @@
             ],
             "allowedCommonJsDependencies": [
               "sweetalert2",
-              "jquery"
+              "jquery",
+              "crypto-js",
+              "docxtemplater",
+              "file-saver",
+              "pizzip"
             ]
           },
           "configurations": {

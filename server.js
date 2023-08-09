@@ -9,4 +9,4 @@ app.get('/*',(req,res)=>{
   res.sendFile("index.html",{root:'./dist/intranet'})
 });
 
-app.listen(process.env.PORT||4244);
+app.listen(process.env.PORT||4248);
