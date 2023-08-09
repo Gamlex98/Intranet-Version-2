@@ -125,7 +125,7 @@ export class AppComponent implements OnInit {
       }, 1000);
   
       Swal.fire({
-        title: 'Tu sesión está a punto de expirar',
+        title: 'Tu sesión está a punto de expirar !!',
         text: `La sesión se cerrará en ${this.tiempoRestante} segundos`,
         timer: 20 * 1000, // 20 segundos
         timerProgressBar: true,

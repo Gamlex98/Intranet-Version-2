@@ -22,7 +22,7 @@ export const navbarData: INavbarData[] = [
         rolesToShow: ['admin']
     },
     {
-        routeLink: 'documentos/documentosFresmar',              
+        routeLink: null,          
         icon: 'fa fa-folder',
         label: 'Gestion Documental',
         items : [

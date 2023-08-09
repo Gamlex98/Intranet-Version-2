@@ -3,13 +3,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-permisos',
-  templateUrl: './permisos.component.html',
-  styleUrls: ['./permisos.component.css']
+  selector: 'app-licencias',
+  templateUrl: './licencias.component.html',
+  styleUrls: ['./licencias.component.css']
 })
-export class PermisosComponent implements OnInit {
+export class LicenciasComponent implements OnInit {
 
-  formularioPermisos !: FormGroup;
+  formularioLicencias !: FormGroup;
   conRegreso: string = 'No';
 
   selectFile1 !: File;
@@ -22,7 +22,7 @@ export class PermisosComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.formularioPermisos = this.formBuild.group({
+    this.formularioLicencias = this.formBuild.group({
       fechaSolicitud: ['', Validators.required],
       nombre: ['', Validators.required],
       cedula: ['', Validators.required],
@@ -39,13 +39,11 @@ export class PermisosComponent implements OnInit {
         fechaTerminacion: [''],
         fechaReintegrarse: ['']
       }),
-      tipoPermiso: ['',Validators.required],
-      tipoPermisoSalud: ['',Validators.required],
+      tipoLicencia: ['',Validators.required],
       relacionFamiliar: ['',Validators.required],
       otrosRelacion:[''],
       opcionCompensado:['',Validators.required],
       opcionJefeInmediato:['',Validators.required],
-      respuestaMisiónCapacitación:['',Validators.required],
       permisoVotacion:['',Validators.required],
       calamidad:['',Validators.required],
       respuestaOtros:['',Validators.required]
@@ -53,8 +51,8 @@ export class PermisosComponent implements OnInit {
   }
 
   enviarFormulario(): void {
-    if (this.formularioPermisos.valid) {
-      const formData = this.formularioPermisos.value;
+    if (this.formularioLicencias.valid) {
+      const formData = this.formularioLicencias.value;
       console.log(formData);
       // Lógica para enviar el formulario
     } else {

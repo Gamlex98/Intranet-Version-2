@@ -76,6 +76,79 @@ h3 {
 }
 }
 
+.et-slide-cartaLaboral {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    height: auto;
+    position: relative;
+    background: #eee;
+        text-align: center;
+        // padding: 0 2em;
+    h1 {
+        font-size: 30px;
+        // font-size: 1rem;
+        margin: 0;
+        // letter-spacing: 1rem;
+    }
+    h3 {
+        // font-size: 1rem;
+        // letter-spacing: 0.3rem;
+        font-size: 30px;
+        opacity: 0.6;
+    }
+    }
+
+.et-slide-licencias {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    height: auto;
+    position: relative;
+    background: #eee;
+        text-align: center;
+        // padding: 0 2em;
+    h1 {
+        font-size: 30px;
+        // font-size: 1rem;
+        margin: 0;
+        // letter-spacing: 1rem;
+    }
+    h3 {
+        // font-size: 1rem;
+        // letter-spacing: 0.3rem;
+        font-size: 30px;
+        opacity: 0.6;
+    }
+    }
+
+    .et-slide-permisos {
+        display: flex;
+        flex-direction: column;
+        justify-content: top;
+        align-items: center;
+        height: auto;
+        position: relative;
+        background: #eee;
+            text-align: center;
+            // padding: 0 2em;
+        h1 {
+            font-size: 30px;
+            // font-size: 1rem;
+            margin: 0;
+            // letter-spacing: 1rem;
+        }
+        h3 {
+            // font-size: 1rem;
+            // letter-spacing: 0.3rem;
+            font-size: 30px;
+            opacity: 0.6;
+        }
+        }
+    
+
 .et-hero-tabs-container {
     font-weight: bold;
     display: flex;

@@ -1,0 +1,40 @@
+.letraElegante {
+  font-weight: bold;
+  font-family: sans-serif Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.formulario-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #E4F2E4; /* Cambia este color al verde deseado */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-control {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para botones */
+  .btn-primary {
+    background-color: #4caf50; /* Cambia el color del botón principal */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .btn-secondary {
+    background-color: #ccc; /* Cambia el color del botón secundario */
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }

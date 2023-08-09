@@ -1,3 +1,559 @@
-<p>
-  permisos works!
-</p>
+<div class="formulario-container">
+  <div class="container">
+    <form [formGroup]="formularioPermisos" (ngSubmit)="enviarFormulario()">
+      <div class="form-group">
+        <label for="fechaSolicitud" class="letraElegante">Fecha de solicitud</label>
+        <input type="date" class="form-control" formControlName="fechaSolicitud">
+      </div>
+      <div class="form-group">
+        <label for="nombre" class="letraElegante">Nombre</label>
+        <input type="text" class="form-control" formControlName="nombre">
+      </div>
+      <div class="form-group">
+        <label for="cedula" class="letraElegante">Cédula</label>
+        <input type="text" class="form-control" formControlName="cedula">
+      </div>
+      <div class="form-group">
+        <label class="letraElegante">Seleccione Sucursal:</label>
+        <select class="form-control" id="sucursal">
+          <option value="" disabled selected>Seleccione sucursal...</option>
+          <option value="1">S01</option>
+          <option value="2">S02</option>
+          <option value="3">S03</option>
+          <option value="4">S04</option>
+          <option value="5">S05</option>
+          <option value="6">S06</option>
+          <option value="7">S07</option>
+          <option value="8">S08</option>
+          <option value="9">S09</option>
+          <option value="10">S10</option>
+          <option value="11">S11</option>
+          <option value="12">S12</option>
+          <option value="13">S13</option>
+          <option value="14">S14</option>
+          <option value="15">S15</option>
+          <option value="16">S16</option>
+          <option value="17">S17</option>
+          <option value="18">S18</option>
+          <option value="19">S19</option>
+          <option value="20">S20</option>
+          <option value="21">S21</option>
+          <option value="23">S23</option>
+          <option value="24">S24</option>
+          <option value="25">S25</option>
+          <option value="26">S26</option>
+          <option value="27">S27</option>
+          <option value="28">S28</option>
+          <option value="29">S29</option>
+          <option value="30">S30</option>
+          <option value="32">S32</option>
+        </select>
+      </div>
+      <br>
+      <div class="form-group">
+        <label class="letraElegante">Selecciona una de las dos opciones:</label>
+        <div class="form-check">
+          <input type="radio" class="form-check-input" value="opcionA" formControlName="opcion">
+          <label class="form-check-label">Salir de la sede de trabajo (cuando se ausenta por horas)</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" class="form-check-input" value="opcionB" formControlName="opcion">
+          <label class="form-check-label">Ausentarse de las funciones laborales (cuando es jornada completa)</label>
+        </div>
+      </div>
+
+      <!-- Opción A -->
+      <div formGroupName="opcionA" *ngIf="formularioPermisos.get('opcion')?.value === 'opcionA'">
+
+        <div class="form-group">
+          <label for="fechaLicencia">Fecha de licencia</label>
+          <input type="date" class="form-control" formControlName="fechaLicencia">
+        </div>
+
+        <div class="form-group">
+          <label for="horaSalida">Hora de salida</label>
+          <input type="time" class="form-control" formControlName="horaSalida">
+        </div>
+
+        <div class="form-group">
+          <label>Con regreso?</label>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="No" formControlName="conRegreso"
+              (change)="opcionRegreso('No')">
+            <label class="form-check-label">No</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="Si" formControlName="conRegreso"
+              (change)="opcionRegreso('Si')">
+            <label class="form-check-label">Sí</label>
+          </div>
+        </div>
+
+        <div class="form-group" *ngIf="conRegreso === 'Si'">
+          <label for="horaRegreso">Hora de regreso</label>
+          <input type="time" class="form-control" formControlName="horaRegreso">
+        </div>
+
+      </div>
+
+      <!-- Opción B -->
+      <div formGroupName="opcionB" *ngIf="formularioPermisos.get('opcion')?.value === 'opcionB'">
+        <div class="form-group">
+          <label for="fechaInicio">Fecha de inicio</label>
+          <input type="date" class="form-control" formControlName="fechaInicio">
+        </div>
+        <div class="form-group">
+          <label for="fechaTerminacion">Fecha de terminación</label>
+          <input type="date" class="form-control" formControlName="fechaTerminacion">
+        </div>
+        <div class="form-group">
+          <label for="fechaReintegrarse">Fecha en la que debe reintegrarse a las funciones</label>
+          <input type="date" class="form-control" formControlName="fechaReintegrarse">
+        </div>
+        <!-- Agrega más campos según tus necesidades -->
+      </div>
+      <br>
+      <!-- Tipo de licencia -->
+      <div class="form-group">
+        <label for="tipoLicencia" class="letraElegante" style="text-decoration: underline;margin-bottom: 10px;">Tipo de
+          Permiso :</label>
+        <select class="form-control" formControlName="tipoPermiso">
+          <option value="">Seleccione...</option>
+          <option value="Permiso por temas de salud">Permiso por temas de salud</option>
+          <option value="Permiso remunerado">Permiso remunerado</option>
+          <option value="Permiso no remunerado">Permiso no remunerado</option>
+          <option value="Permiso misión o capacitación">Permiso en misión o capacitaciones autorizadas</option>
+          <option value="Permiso día de la familia">Permiso día de la familia</option>
+          <option value="Permiso por cumpleaños">Permiso por cumpleaños (2horas)</option>
+          <option value="Otros">Otros</option>
+        </select>
+      </div>
+
+      <!-- Campos adicionales según el tipo de Permiso -->
+      <div *ngIf="formularioPermisos.get('tipoPermiso')?.value === 'Permiso por temas de salud'">
+        <!-- Select para la relación con el permiso Salud  -->
+        <label for="relacion" class="letraElegante">Selecciona una de las opciones:</label> <br>
+        <select class="form-control" id="permisoSalud" formControlName="tipoPermisoSalud" required>
+          <option value="" disabled selected>Seleccione...</option>
+          <option value="Citas médicas"> Citas médicas </option>
+          <option value="Urgencias médicas"> Urgencias médicas </option>
+          <option value="Vacunación"> Vacunación </option>
+          <option value="Exámenes médicos"> Exámenes médicos </option>
+          <option value="Otros"> Otros </option>
+        </select>
+
+        <!-- Campo opcion Citas Medicas" -->
+        <div *ngIf="formularioPermisos.get('tipoPermisoSalud')?.value === 'Citas médicas'" style="margin-top: 10px;">
+          <label for="citasMedicas" class="letraElegante" style="width: 600px;text-align: justify;">El formato de
+            licencias y permisos debe enviarse físico con los documentos que solicitan para las licencias por luto ,
+            maternidad , paternidad, graduación , matrimonio , calamidad domestica, permiso no remunerado y permiso
+            remunerado.</label> <br><br>
+
+          <div class="form-group">
+            <label class="letraElegante">El permiso es tiempo compensado ?</label>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="Si" formControlName="opcionCompensado">
+              <label class="form-check-label">Si</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="No" formControlName="opcionCompensado">
+              <label class="form-check-label">No</label>
+            </div>
+          </div>
+
+          <br><br>
+          <div class="form-group">
+            <label class="letraElegante"> Su jefe inmediato autorizó la licencia ?</label>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="Si" formControlName="opcionJefeInmediato">
+              <label class="form-check-label">Si</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="No" formControlName="opcionJefeInmediato">
+              <label class="form-check-label">No</label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Campo opcion Urgencias Medicas" -->
+        <div *ngIf="formularioPermisos.get('tipoPermisoSalud')?.value === 'Urgencias médicas'"
+          style="margin-top: 10px;">
+          <label for="urgenciasmedicas" class="letraElegante" style="width: 600px;text-align: justify;">El empleado
+            tiene la obligación de enviar los siguientes documentos al área de Talento Humano el mismo día que se
+            presenta la urgencia de manera física.</label> <br><br>
+
+          <!-- Campo para incapacidad -->
+          <p style="font-weight: bold;">Incapacidad Original :</p>
+          <input class="form-control" type="file" accept=".pdf,.jpg,.jpeg,.png" (change)="selectedFile1($event)"
+            required>
+
+          <!-- Campo para historia clinica -->
+          <br>
+          <p style="font-weight: bold;">Historia clínica :</p>
+          <input class="form-control" type="file" accept=".pdf,.jpg,.jpeg,.png" (change)="selectedFile2($event)"
+            required>
+
+          <!-- Campo para FURIPS -->
+          <br>
+          <p style="font-weight: bold;width: 600px;text-align: justify;">FURIPS (Formulario de reclamación de las
+            instituciones prestadoras de salud por sericios prestados a víctimas de eventos catastróficos y
+            accidentes de tránsito):</p>
+          <input class="form-control" type="file" accept=".pdf,.jpg,.jpeg,.png" (change)="selectedFile3($event)"
+            required>
+
+          <br><br>
+          <div class="form-group">
+            <label class="letraElegante">El permiso es tiempo compensado ?</label>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="Si" formControlName="opcionCompensado">
+              <label class="form-check-label">Si</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="No" formControlName="opcionCompensado">
+              <label class="form-check-label">No</label>
+            </div>
+          </div>
+
+          <br><br>
+          <div class="form-group">
+            <label class="letraElegante"> Su jefe inmediato autorizó la licencia ?</label>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="Si" formControlName="opcionJefeInmediato">
+              <label class="form-check-label">Si</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="No" formControlName="opcionJefeInmediato">
+              <label class="form-check-label">No</label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Campo opcion Vacunacion" -->
+        <div *ngIf="formularioPermisos.get('tipoPermisoSalud')?.value === 'Vacunación'" style="margin-top: 10px;">
+
+          <label for="citasMedicas" class="letraElegante" style="width: 600px;text-align: justify;">El formato de
+            licencias y permisos debe enviarse físico con los documentos que solicitan para las licencias por luto ,
+            maternidad , paternidad, graduación , matrimonio , calamidad domestica, permiso no remunerado y permiso
+            remunerado.</label> <br><br>
+
+          <div class="form-group">
+            <label class="letraElegante">El permiso es tiempo compensado ?</label>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="Si" formControlName="opcionCompensado">
+              <label class="form-check-label">Si</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="No" formControlName="opcionCompensado">
+              <label class="form-check-label">No</label>
+            </div>
+          </div>
+
+          <br><br>
+          <div class="form-group">
+            <label class="letraElegante"> Su jefe inmediato autorizó la licencia ?</label>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="Si" formControlName="opcionJefeInmediato">
+              <label class="form-check-label">Si</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="No" formControlName="opcionJefeInmediato">
+              <label class="form-check-label">No</label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Campo opcion examenes medicos" -->
+        <div *ngIf="formularioPermisos.get('tipoPermisoSalud')?.value === 'Exámenes médicos'" style="margin-top: 10px;">
+
+          <label for="citasMedicas" class="letraElegante" style="width: 600px;text-align: justify;">El formato de
+            licencias y permisos debe enviarse físico con los documentos que solicitan para las licencias por luto ,
+            maternidad , paternidad, graduación , matrimonio , calamidad domestica, permiso no remunerado y permiso
+            remunerado.</label> <br><br>
+
+          <div class="form-group">
+            <label class="letraElegante">El permiso es tiempo compensado ?</label>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="Si" formControlName="opcionCompensado">
+              <label class="form-check-label">Si</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="No" formControlName="opcionCompensado">
+              <label class="form-check-label">No</label>
+            </div>
+          </div>
+
+          <br><br>
+          <div class="form-group">
+            <label class="letraElegante"> Su jefe inmediato autorizó la licencia ?</label>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="Si" formControlName="opcionJefeInmediato">
+              <label class="form-check-label">Si</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="No" formControlName="opcionJefeInmediato">
+              <label class="form-check-label">No</label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Campo opcion Otros" -->
+        <div *ngIf="formularioPermisos.get('tipoPermisoSalud')?.value === 'Otros'" style="margin-top: 10px;">
+
+          <label class="letraElegante"> Otro tema de salud :</label>
+
+          <div class="form-group">
+            <input type="text" class="form-control" formControlName="respuestaOtros">
+          </div>
+
+        </div>
+
+      </div>
+
+      <div *ngIf="formularioPermisos.get('tipoPermiso')?.value === 'Permiso remunerado'">
+
+        <label style="width: 600px;text-align: justify;font-weight: bold;">Los permisos remunerados entraran a validación por el área de talento humano y
+         Dirección administrativa.</label> <br><br>
+
+         <label for="citasMedicas" class="letraElegante" style="width: 600px;text-align: justify;">El formato de
+          licencias y permisos debe enviarse físico con los documentos que solicitan para las licencias por luto ,
+          maternidad , paternidad, graduación , matrimonio , calamidad domestica, permiso no remunerado y permiso
+          remunerado.</label> <br><br>
+
+        <div class="form-group">
+          <label class="letraElegante">El permiso es tiempo compensado ?</label>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="Si" formControlName="opcionCompensado">
+            <label class="form-check-label">Si</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="No" formControlName="opcionCompensado">
+            <label class="form-check-label">No</label>
+          </div>
+        </div>
+
+        <br><br>
+        <div class="form-group">
+          <label class="letraElegante"> Su jefe inmediato autorizó la licencia ?</label>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="Si" formControlName="opcionJefeInmediato">
+            <label class="form-check-label">Si</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="No" formControlName="opcionJefeInmediato">
+            <label class="form-check-label">No</label>
+          </div>
+        </div>
+
+      </div>
+
+      <div *ngIf="formularioPermisos.get('tipoPermiso')?.value === 'Permiso no remunerado'">
+
+        <label for="citasMedicas" class="letraElegante" style="width: 600px;text-align: justify;">El formato de
+          licencias y permisos debe enviarse físico con los documentos que solicitan para las licencias por luto ,
+          maternidad , paternidad, graduación , matrimonio , calamidad domestica, permiso no remunerado y permiso
+          remunerado.</label> <br><br>
+
+        <div class="form-group">
+          <label class="letraElegante">El permiso es tiempo compensado ?</label>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="Si" formControlName="opcionCompensado">
+            <label class="form-check-label">Si</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="No" formControlName="opcionCompensado">
+            <label class="form-check-label">No</label>
+          </div>
+        </div>
+
+        <br><br>
+        <div class="form-group">
+          <label class="letraElegante"> Su jefe inmediato autorizó la licencia ?</label>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="Si" formControlName="opcionJefeInmediato">
+            <label class="form-check-label">Si</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="No" formControlName="opcionJefeInmediato">
+            <label class="form-check-label">No</label>
+          </div>
+        </div>
+
+      </div>
+
+      <div *ngIf="formularioPermisos.get('tipoPermiso')?.value === 'Permiso misión o capacitación'">
+
+        <label class="letraElegante"> Mencione la misión o la capacitación :</label>
+
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="respuestaMisiónCapacitación">
+        </div>
+
+        <label for="citasMedicas" class="letraElegante" style="width: 600px;text-align: justify;">El formato de
+          licencias y permisos debe enviarse físico con los documentos que solicitan para las licencias por luto ,
+          maternidad , paternidad, graduación , matrimonio , calamidad domestica, permiso no remunerado y permiso
+          remunerado.</label> <br><br>
+
+        <div class="form-group">
+          <label class="letraElegante">El permiso es tiempo compensado ?</label>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="Si" formControlName="opcionCompensado">
+            <label class="form-check-label">Si</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="No" formControlName="opcionCompensado">
+            <label class="form-check-label">No</label>
+          </div>
+        </div>
+
+        <br><br>
+        <div class="form-group">
+          <label class="letraElegante"> Su jefe inmediato autorizó la licencia ?</label>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="Si" formControlName="opcionJefeInmediato">
+            <label class="form-check-label">Si</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="No" formControlName="opcionJefeInmediato">
+            <label class="form-check-label">No</label>
+          </div>
+        </div>
+
+      </div>
+
+      <div *ngIf="formularioPermisos.get('tipoPermiso')?.value === 'Permiso día de la familia'">
+
+        <label class="letraElegante" style="width: 600px;font-weight: bold;"> Derecho que le otorga la ley 1857 de 2017 y la Comercializadora Fresmar SAS para abrir espacios de
+         acercamiento, protección y armonía con los miembros de su núcleo familiar.</label>
+
+        <br><br>
+        <p style="font-weight: bold;width: 600px;">(para fácil manejo de esta parte permitir un select Date y después definir a que semestre del año corresponde).</p>
+
+        <div class="form-group">
+          <label for="fechaSolicitud" class="letraElegante">Día correspondiente a el :</label>
+          <input type="date" class="form-control" formControlName="fechaSolicitud">
+        </div>
+
+        <label class="letraElegante" style="width: 600px;text-align: justify;"> El Formato de licencias y permisos debe
+          enviarse físico con los documentos que se solicitan para las licencias por luto, maternidad,
+          paternidad, graduación, matrimonio, calamidad domestica, permiso no remunerado y permiso remunerado.</label>
+
+        <br><br>
+        <div class="form-group">
+          <label class="letraElegante">El permiso es tiempo compensado ?</label>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="Si" formControlName="opcionCompensado">
+            <label class="form-check-label">Si</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="No" formControlName="opcionCompensado">
+            <label class="form-check-label">No</label>
+          </div>
+        </div>
+
+        <br><br>
+        <div class="form-group">
+          <label class="letraElegante"> Su jefe inmediato autorizó la licencia ?</label>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="Si" formControlName="opcionJefeInmediato">
+            <label class="form-check-label">Si</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="No" formControlName="opcionJefeInmediato">
+            <label class="form-check-label">No</label>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="formularioPermisos.get('tipoPermiso')?.value === 'Permiso por cumpleaños'">
+        <div class="letraElegante ajusteTexto">
+          <label>Todo empleado de acuerdo al programa de bienestar podrá ausentarse dos (2) horas antes de su puesto de trabajo.</label>
+          <label>*Sí cumples años en un día festivo o fin de semana, únicamente podrás tomar las dos horas el día hábil antes o después.</label>
+          <label>*Sí la fecha de tú cumpleaños llegare a coincidir con una comisión fuera de la empresa o en vacaciones, podrás disfrutar del beneficio otro día dentro de los 30 días siguientes.</label>
+          <label>*Todos los empleados podrán aplicar a este beneficio.</label>
+          <br><br>
+          <label> El Formato de licencias y permisos debe
+            enviarse físico con los documentos que se solicitan para las licencias por luto, maternidad,
+            paternidad, graduación, matrimonio, calamidad domestica, permiso no remunerado y permiso remunerado.</label>
+        </div>
+          <br><br>
+          <div class="form-group">
+            <label class="letraElegante">El permiso es tiempo compensado ?</label>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="Si" formControlName="opcionCompensado">
+              <label class="form-check-label">Si</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="No" formControlName="opcionCompensado">
+              <label class="form-check-label">No</label>
+            </div>
+          </div>
+  
+          <br><br>
+          <div class="form-group">
+            <label class="letraElegante"> Su jefe inmediato autorizó la licencia ?</label>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="Si" formControlName="opcionJefeInmediato">
+              <label class="form-check-label">Si</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" value="No" formControlName="opcionJefeInmediato">
+              <label class="form-check-label">No</label>
+            </div>
+          </div>
+          
+      </div>
+  
+      <div *ngIf="formularioPermisos.get('tipoPermiso')?.value === 'Otros'">
+
+        <label class="letraElegante"> Respuesta:</label>
+
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="respuestaOtros">
+        </div>
+
+        <label class="letraElegante" style="width: 500px;text-align: justify;"> El Formato de licencias y permisos debe
+          enviarse físico con los documentos que se solicitan para las licencias por luto, maternidad,
+          paternidad, graduación, matrimonio, calamidad domestica, permiso no remunerado y permiso remunerado.</label>
+
+        <br><br>
+        <div class="form-group">
+          <label class="letraElegante">El permiso es tiempo compensado ?</label>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="Si" formControlName="opcionCompensado">
+            <label class="form-check-label">Si</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="No" formControlName="opcionCompensado">
+            <label class="form-check-label">No</label>
+          </div>
+        </div>
+
+        <br><br>
+        <div class="form-group">
+          <label class="letraElegante"> Su jefe inmediato autorizó la licencia ?</label>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="Si" formControlName="opcionJefeInmediato">
+            <label class="form-check-label">Si</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="No" formControlName="opcionJefeInmediato">
+            <label class="form-check-label">No</label>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Botones de envío y cancelación -->
+      <div style="margin-top: 35px;">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelar()"
+          style="margin-left: 20px;">Cancelar</button>
+      </div>
+
+    </form>
+  </div>
+</div>

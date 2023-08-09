@@ -34,7 +34,7 @@ export class SolicitudesComponent implements OnInit, OnDestroy, AfterViewInit {
     $(window).off('resize');
     $('.et-hero-tab').off('click');
 
-    // Si es necesario, llamar a métodos adicionales de limpieza en StickyNavigation
+    // En casos especificos limpiamos StickyNavigation
     // this.stickyNavigation.cleanupMethod();
   }
 

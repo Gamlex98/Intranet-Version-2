@@ -20,7 +20,7 @@ setLoggedIn (value:boolean) {
   this.isLoggedIn = value;
 }
 
-getLoggedIn(): boolean {
+getLoggedIn(): boolean {  
   return this.isLoggedIn;
 }
 

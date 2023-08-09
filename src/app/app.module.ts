@@ -62,6 +62,8 @@ import { CesantiasComponent } from './components/solicitudes/cesantias/cesantias
 import { PermisosComponent } from './components/solicitudes/permisos/permisos.component';
 import { PrestamoComponent } from './components/solicitudes/prestamo/prestamo.component';
 import { VacacionesComponent } from './components/solicitudes/vacaciones/vacaciones.component';
+import { LicenciasComponent } from './components/solicitudes/licencias/licencias.component';
+import { CartaLaboralComponent } from './components/solicitudes/cartaLaboral/cartaLaboral.component';
 
 
 @NgModule({
@@ -100,7 +102,9 @@ import { VacacionesComponent } from './components/solicitudes/vacaciones/vacacio
     CesantiasComponent,
     PermisosComponent,
     PrestamoComponent,
-    VacacionesComponent
+    VacacionesComponent,
+    LicenciasComponent,
+    CartaLaboralComponent
 
   ],
   imports: [

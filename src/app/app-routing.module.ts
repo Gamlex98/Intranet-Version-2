@@ -21,6 +21,8 @@ import { CesantiasComponent } from './components/solicitudes/cesantias/cesantias
 import { PermisosComponent } from './components/solicitudes/permisos/permisos.component';
 import { PrestamoComponent } from './components/solicitudes/prestamo/prestamo.component';
 import { VacacionesComponent } from './components/solicitudes/vacaciones/vacaciones.component';
+import { LicenciasComponent } from './components/solicitudes/licencias/licencias.component';
+import { CartaLaboralComponent } from './components/solicitudes/cartaLaboral/cartaLaboral.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home',pathMatch:'full'},
@@ -34,6 +36,8 @@ const routes: Routes = [
   {path: 'solicitudes', component: SolicitudesComponent},
   {path: 'auxilios', component: AuxiliosComponent},
   {path: 'cesantias', component: CesantiasComponent},
+  {path: 'cartaLaboral', component: CartaLaboralComponent},
+  {path: 'licencias', component: LicenciasComponent},
   {path: 'permisos', component: PermisosComponent},
   {path: 'prestamos', component: PrestamoComponent},
   {path: 'vacaciones', component: VacacionesComponent},
