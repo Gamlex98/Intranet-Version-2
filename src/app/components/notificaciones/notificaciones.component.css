@@ -1,10 +1,11 @@
+
 .notifications-container {
     display: flex;
     align-items: flex-start;
-    /* Alinear en la parte superior */
     justify-content: flex-end;
-    position: relative;
+    position: absolute;
 }
+
 
 .button-default {
     background: transparent;
@@ -12,9 +13,7 @@
     cursor: pointer;
     margin: 0;
     outline: none;
-    position: relative;
     transition: all 0.25s ease-out;
-    margin-left: auto;
 }
 
 /* Estilos para el ícono de notificaciones */
@@ -22,13 +21,21 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    position: absolute;
-    /* Cambiado a posición absoluta */
-    right: 0;
-    /* Colocar en la esquina derecha */
+    position: relative;
     top: 0;
-    /* Colocar en la esquina superior */
 }
+
+.notifications {
+    position: relative;
+    background: #f7f4f4;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateX(-450px); /* Desplaza horizontalmente */
+    z-index: 10;
+  }
+  
+  
 
 .show-notifications:hover #icon-bell,
 .show-notifications:focus #icon-bell,
@@ -98,15 +105,7 @@ body {
 }
 
 /* Estilos de la tabla de notificaciones */
-.notifications {
-    background: #f7f4f4;
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 30px;
-    padding: 20px;
-    width: 30%;
-}
+
 
 .notifications-title {
     background-color: #27ae60;

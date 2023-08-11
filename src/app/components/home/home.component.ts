@@ -10,6 +10,7 @@ declare const StickyNavigation: any;
 })
 export class HomeComponent implements OnInit , OnDestroy {
 
+
   ngOnInit() {
     new StickyNavigation();
   }
@@ -22,4 +23,5 @@ export class HomeComponent implements OnInit , OnDestroy {
     
     // this.stickyNavigation.cleanupMethod();
   }
+
 }

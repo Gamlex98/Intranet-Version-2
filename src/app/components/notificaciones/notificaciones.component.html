@@ -1,6 +1,6 @@
+
 <div class="notifications-container">
-  <button type="button" class="button-default show-notifications" (click)="toggleNotifications()"
-    style="margin-left: auto;">
+  <button type="button" class="button-default show-notifications" (click)="toggleNotifications()">
     <svg width="30" height="32" viewBox="0 0 30 32">
       <defs>
         <g id="icon-bell">
@@ -15,7 +15,7 @@
     <div class="notifications-count">{{ items.length }}</div>
   </button>
 
-  <div *ngIf="showNotifications" class="notifications">
+  <div *ngIf="showNotifications" class="notifications" style="width: 400px;align-items: left;">
     <h3 class="notifications-title">Solicitudes pendientes</h3>
     <ul class="notifications-list">
       <li class="item no-data" *ngIf="items.length === 0">No tienes notificaciones</li>
@@ -46,5 +46,4 @@
       </li>
     </ul>
   </div>
-
 </div>

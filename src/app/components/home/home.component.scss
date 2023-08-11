@@ -1,48 +1,81 @@
-
 /* Establecer el contenedor como flex y alinear los elementos al centro */
 
+/* Estilos base */
 .flex-container {
     margin-top: -40px;
     margin-bottom: -15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    align-items: flex-start;
+    position: relative;
+    gap: 10px; /* Agrega un espacio entre los elementos */
   }
   
-  /* Cambiar el orden de los elementos */
+  /* Estilos para app-info-complement */
   app-info-complement {
-    transform: translateY(0);
-    margin-bottom: -0px;
-    width: 50%;
-    order: 1; /* Establecer el orden deseado para app-info-complement */
+    flex: 1;
+    order: 1;
+    max-width: 50%;
   }
+  
+  /* Estilos para app-perfilUser */
+  app-perfilUser {
+    order: 3;
+    margin-left: 10px; /* Reduce el margen izquierdo para acercarlo al elemento anterior */
+  }
+  
+  /* Estilos para app-notificaciones */
+  app-notificaciones {
+    order: 2;
+    margin-left: auto; /* Mueve app-notificaciones al lado derecho */
+  }
+  
+  
+  
+  /* Media Queries para diseño responsive */
+  @media (max-width: 768px) {
+    .flex-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    app-info-complement,
+    app-notificaciones,
+    app-perfilUser {
+      max-width: 100%;
+    }
+  }
+  
+.move-up-notificacion {
+    position: relative;
+    top: 35px;
+}
 
-  .move-up {
+.move-up {
     position: relative;
     top: 24px;
-  }
-  
-  app-perfilUser {
-    margin-left: auto; /* Mover app-perfilUser hacia la derecha */
-    order: 2; /* Establecer el orden deseado para app-perfilUser */
-  }
-  
-  .marquee {
-    flex: 1; /* Asegurarse de que el marquee ocupe el espacio restante */
-  }
-  
-  /* Alinear el logo al centro */
-  .logoFresmar {
+}
+
+.marquee {
+    flex: 1;
+    /* Asegurarse de que el marquee ocupe el espacio restante */
+}
+
+/* Alinear el logo al centro */
+.logoFresmar {
     margin-left: 25px;
     width: 25%;
     height: auto;
-    margin: 0 auto; /* Alinear horizontalmente el logo al centro */
-    display: block; /* Asegurarse de que el logo sea un bloque para que ocupe el ancho máximo */
-  }
-  
+    margin: 0 auto;
+    /* Alinear horizontalmente el logo al centro */
+    display: block;
+    /* Asegurarse de que el logo sea un bloque para que ocupe el ancho máximo */
+}
+
 .sidebar {
     width: calc(100% - 5rem);
-  }
-  
+}
+
 .counter-wrapper {
     position: relative;
     float: right;
@@ -88,7 +121,7 @@ a {
     h1 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #07a142; 
+        color: #07a142;
         font-size: 2rem;
         margin: 0;
         letter-spacing: 0.1rem;
@@ -97,7 +130,7 @@ a {
     h3 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #054103; 
+        color: #054103;
         font-size: 2rem;
         letter-spacing: 0.05rem;
         opacity: 0.6;
@@ -119,7 +152,7 @@ a {
     h1 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #268048; 
+        color: #268048;
         font-size: 2rem;
         margin: 0;
         letter-spacing: 0.1rem;
@@ -128,7 +161,7 @@ a {
     h3 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #268048; 
+        color: #268048;
         font-size: 1rem;
         letter-spacing: 0.1rem;
         opacity: 0.6;
@@ -150,7 +183,7 @@ a {
     h1 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #268048; 
+        color: #268048;
         font-size: 2rem;
         margin: 0;
         letter-spacing: 0.1rem;
@@ -159,7 +192,7 @@ a {
     h3 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #268048; 
+        color: #268048;
         font-size: 1rem;
         letter-spacing: 0.1rem;
         opacity: 0.6;
@@ -181,7 +214,7 @@ a {
     h1 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #268048; 
+        color: #268048;
         font-size: 2rem;
         margin: 0;
         letter-spacing: 0.1rem;
@@ -190,7 +223,7 @@ a {
     h3 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #268048; 
+        color: #268048;
         font-size: 1rem;
         letter-spacing: 0.1rem;
         opacity: 0.6;
@@ -212,7 +245,7 @@ a {
 
     h1 {
         font-family: "Playfair Display", serif;
-        color: #268048; 
+        color: #268048;
         font-size: 2rem;
         margin: 0;
         letter-spacing: 0.1rem;
@@ -220,7 +253,7 @@ a {
 
     h3 {
         font-family: "Playfair Display", serif;
-        color: #268048; 
+        color: #268048;
         font-size: 1rem;
         letter-spacing: 0.1rem;
         opacity: 0.6;
@@ -242,7 +275,7 @@ a {
     h1 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #268048; 
+        color: #268048;
         font-size: 2rem;
         margin: 0;
         letter-spacing: 0.1rem;
@@ -251,7 +284,7 @@ a {
     h3 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #268048; 
+        color: #268048;
         font-size: 1rem;
         letter-spacing: 0.1rem;
         opacity: 0.6;
@@ -273,7 +306,7 @@ a {
     h1 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #268048; 
+        color: #268048;
         font-size: 2rem;
         margin: 0;
         letter-spacing: 0.1rem;
@@ -282,7 +315,7 @@ a {
     h3 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #268048; 
+        color: #268048;
         font-size: 1rem;
         letter-spacing: 0.1rem;
         opacity: 0.6;
@@ -304,7 +337,7 @@ a {
     h1 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #268048; 
+        color: #268048;
         font-size: 2rem;
         margin: 0;
         letter-spacing: 0.1rem;
@@ -313,7 +346,7 @@ a {
     h3 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #268048; 
+        color: #268048;
         font-size: 1rem;
         letter-spacing: 0.1rem;
         opacity: 0.6;
@@ -335,7 +368,7 @@ a {
     h1 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #268048; 
+        color: #268048;
         font-size: 2rem;
         margin: 0;
         letter-spacing: 0.1rem;
@@ -344,7 +377,7 @@ a {
     h3 {
         font-family: "Playfair Display", serif;
         font-weight: bold;
-        color: #268048; 
+        color: #268048;
         font-size: 1rem;
         letter-spacing: 0.1rem;
         opacity: 0.6;
@@ -361,7 +394,7 @@ a {
     height: 30%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background: rgb(174, 223, 174);
-    z-index: 10;
+    z-index: 1;
 
     &--top {
         position: fixed;
