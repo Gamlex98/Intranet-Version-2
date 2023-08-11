@@ -1,0 +1,168 @@
+.notifications-container {
+    display: flex;
+    align-items: flex-start;
+    /* Alinear en la parte superior */
+    justify-content: flex-end;
+    position: relative;
+}
+
+.button-default {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    outline: none;
+    position: relative;
+    transition: all 0.25s ease-out;
+    margin-left: auto;
+}
+
+/* Estilos para el ícono de notificaciones */
+.show-notifications {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    /* Cambiado a posición absoluta */
+    right: 0;
+    /* Colocar en la esquina derecha */
+    top: 0;
+    /* Colocar en la esquina superior */
+}
+
+.show-notifications:hover #icon-bell,
+.show-notifications:focus #icon-bell,
+.show-notifications.active #icon-bell {
+    fill: rgb(11, 107, 11);
+}
+
+#icon-bell {
+    fill: rgb(12, 133, 32);
+}
+
+.show-notifications:hover svg {
+    fill: rgb(6, 80, 6);
+}
+
+/* Estilos para el contador de notificaciones */
+.show-notifications .notifications-count {
+    background: #27ae60;
+    border-radius: 50%;
+    color: #fefefe;
+    font: normal 0.85em "Lato";
+    height: 16px;
+    line-height: 16px;
+    position: absolute;
+    right: -8px;
+    text-align: center;
+    top: -8px;
+    width: 16px;
+}
+
+
+.details {
+    flex-grow: 1;
+}
+
+.button-dismiss {
+    background: transparent;
+    border: none;
+    color: #bdc3c7;
+    cursor: pointer;
+    font-size: 1.5em;
+    outline: none;
+}
+
+/* ... Otros estilos ... */
+
+/* Estilos para el ícono de notificación en cada elemento */
+.icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.icon svg {
+    fill: green;
+    width: 16px;
+    height: 16px;
+}
+
+
+
+/* Estilos generales */
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos de la tabla de notificaciones */
+.notifications {
+    background: #f7f4f4;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 30px;
+    padding: 20px;
+    width: 30%;
+}
+
+.notifications-title {
+    background-color: #27ae60;
+    color: #fff;
+    margin: 0;
+    padding: 10px;
+    border-radius: 4px 4px 0 0;
+}
+
+.notifications-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #b8b4b4;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.date {
+    color: #95a5a6;
+}
+
+.button-dismiss {
+    background: transparent;
+    border: none;
+    color: #bdc3c7;
+    cursor: pointer;
+    font-size: 1.5em;
+    outline: none;
+  }
+  
+  .button-dismiss:hover {
+    color: #e74c3c;
+  }
+.show-all {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.show-all-link {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.show-all-link:hover {
+    text-decoration: underline;
+}

@@ -57,13 +57,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import { EditarComponent } from './components/seguridad/editar/editar.component';
 import { ChangePassComponent } from './components/perfilUser/changePass/changePass.component';
 import { ProfileUserComponent } from './components/perfilUser/profileUser/profileUser.component';
-import { AuxiliosComponent } from './components/solicitudes/auxilios/auxilios.component';
-import { CesantiasComponent } from './components/solicitudes/cesantias/cesantias.component';
-import { PermisosComponent } from './components/solicitudes/permisos/permisos.component';
-import { PrestamoComponent } from './components/solicitudes/prestamo/prestamo.component';
-import { VacacionesComponent } from './components/solicitudes/vacaciones/vacaciones.component';
-import { LicenciasComponent } from './components/solicitudes/licencias/licencias.component';
-import { CartaLaboralComponent } from './components/solicitudes/cartaLaboral/cartaLaboral.component';
+import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 
 
 @NgModule({
@@ -98,14 +92,7 @@ import { CartaLaboralComponent } from './components/solicitudes/cartaLaboral/car
     EditarComponent,
     ChangePassComponent,
     ProfileUserComponent,
-    AuxiliosComponent,
-    CesantiasComponent,
-    PermisosComponent,
-    PrestamoComponent,
-    VacacionesComponent,
-    LicenciasComponent,
-    CartaLaboralComponent
-
+    NotificacionesComponent
   ],
   imports: [
     BrowserModule,

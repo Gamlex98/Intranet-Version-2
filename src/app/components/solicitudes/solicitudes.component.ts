@@ -1,7 +1,4 @@
 import { Component, OnDestroy, OnInit, AfterViewInit } from '@angular/core';
-import { Router } from '@angular/router';
-import * as $ from 'jquery';
-import Swal from 'sweetalert2';
 
 
 declare const StickyNavigation: any;
@@ -12,45 +9,8 @@ declare const StickyNavigation: any;
   styleUrls: ['./solicitudes.component.scss']
 })
 
-export class SolicitudesComponent implements OnInit, OnDestroy, AfterViewInit {
+export class SolicitudesComponent {
 
   constructor(
-    private router: Router
   ) { }
-
-  ngOnInit() {
-    new StickyNavigation();
-  }
-
-  ngAfterViewInit(): void {
-    
-    // this.avisoAlert();
-
-  }
-
-  ngOnDestroy() {
-    // Limpiar eventos y objetos relacionados con StickyNavigation para eliminar errores al cambiar de Componente en la NavBar Principal
-    $(window).off('scroll');
-    $(window).off('resize');
-    $('.et-hero-tab').off('click');
-
-    // En casos especificos limpiamos StickyNavigation
-    // this.stickyNavigation.cleanupMethod();
-  }
-
-  /* avisoAlert() {
-    Swal.fire({
-      position: 'center',
-      icon: 'info',
-      title: `Este componente se encuentra en Construcción !`,
-      text: 'Pronto estará disponible , se encuentra en proceso de desarrollo...',
-      showConfirmButton: true,
-      confirmButtonText: 'Entendido'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.router.navigate(['/home']);
-      }
-    });
-  } */
-
 }

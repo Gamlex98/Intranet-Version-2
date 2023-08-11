@@ -1,9 +1,23 @@
+.titulo {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #555;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+}
+
 .letraElegante {
   font-weight: bold;
   font-family: sans-serif Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .formulario-container {
+    width: 600px;
     margin: 20px;
     padding: 20px;
     background-color: #E4F2E4; /* Cambia este color al verde deseado */
@@ -38,3 +52,5 @@
     padding: 10px 20px;
     cursor: pointer;
   }
+
+  

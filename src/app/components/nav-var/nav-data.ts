@@ -49,15 +49,48 @@ export const navbarData: INavbarData[] = [
         rolesToShow: ['admin','user']
     },
     {
-        routeLink: 'calendario',
-        icon: 'fal fa-calendar',
-        label: 'Calendario de Eventos',
+        routeLink: null,          
+        icon: 'fa fa-folder',
+        label: 'Solicitudes',
+        items : [
+    /*         {
+                routeLink : 'solicitudes/auxilios',
+                icon: 'fa fa-folder',
+                label: 'Auxilios'
+            }, */
+            {
+                routeLink : 'solicitudes/cartaLaboral',
+                label : 'Carta Laboral'
+            },
+/*             {
+                routeLink : 'solicitudes/cesantias',
+                icon: 'fa fa-file',
+                label: 'Cesantias'
+            }, */
+            {
+                routeLink : 'solicitudes/licencias',
+                label: 'Licencias'
+            },
+            {
+                routeLink : 'solicitudes/permisos',
+                label: 'Permisos'
+            },
+        /*     {
+                routeLink : 'solicitudes/prestamos',
+                label: 'Prestamos'
+            }, */
+            {
+                routeLink : 'solicitudes/vacaciones',
+                label: 'Vacaciones'
+            }
+         
+        ],
         rolesToShow: ['admin','user']
     },
     {
-        routeLink: 'solicitudes',
-        icon: 'fal fa-book',
-        label: 'Solicitudes',
+        routeLink: 'calendario',
+        icon: 'fal fa-calendar',
+        label: 'Calendario de Eventos',
         rolesToShow: ['admin','user']
     },
      {

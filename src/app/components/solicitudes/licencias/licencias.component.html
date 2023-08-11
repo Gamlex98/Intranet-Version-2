@@ -1,17 +1,19 @@
-<div class="formulario-container">
+<h1 class="titulo">Solicitud Licencias</h1>
+
+<div class="formulario-container" style="margin-left: 300px;">
   <div class="container">
     <form [formGroup]="formularioLicencias" (ngSubmit)="enviarFormulario()">
       <div class="form-group">
         <label for="fechaSolicitud" class="letraElegante">Fecha de solicitud</label>
-        <input type="date" class="form-control" formControlName="fechaSolicitud">
+        <input type="date" class="form-control" formControlName="fechaSolicitud" style="width: 250px;">
       </div>
       <div class="form-group">
         <label for="nombre" class="letraElegante">Nombre</label>
         <input type="text" class="form-control" formControlName="nombre">
       </div>
       <div class="form-group">
-        <label for="cedula" class="letraElegante">Cédula</label>
-        <input type="text" class="form-control" formControlName="cedula">
+        <label for="cedula" class="letraElegante" >Cédula</label>
+        <input type="text" class="form-control" formControlName="cedula" style="width: 250px;">
       </div>
       <div class="form-group">
         <label class="letraElegante">Seleccione Sucursal:</label>

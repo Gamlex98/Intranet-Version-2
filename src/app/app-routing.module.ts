@@ -5,7 +5,6 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/seguridad/login/login.component';
 import { RegisterComponent } from './components/seguridad/register/register.component';
 import { ResetPassComponent } from './components/seguridad/resetPass/resetPass.component';
-import { SolicitudesComponent } from './components/solicitudes/solicitudes.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { AdmonUserComponent } from './components/seguridad/admonUser/admonUser.component';
 import { ListarUsuariosComponent } from './components/seguridad/listarUsuarios/listarUsuarios.component';
@@ -16,13 +15,7 @@ import { EditarComponent } from './components/seguridad/editar/editar.component'
 import { ChangePassComponent } from './components/perfilUser/changePass/changePass.component';
 import { ProfileUserComponent } from './components/perfilUser/profileUser/profileUser.component';
 import { RegisterUserComponent } from './components/seguridad/register-user/register-user.component';
-import { AuxiliosComponent } from './components/solicitudes/auxilios/auxilios.component';
-import { CesantiasComponent } from './components/solicitudes/cesantias/cesantias.component';
-import { PermisosComponent } from './components/solicitudes/permisos/permisos.component';
-import { PrestamoComponent } from './components/solicitudes/prestamo/prestamo.component';
-import { VacacionesComponent } from './components/solicitudes/vacaciones/vacaciones.component';
-import { LicenciasComponent } from './components/solicitudes/licencias/licencias.component';
-import { CartaLaboralComponent } from './components/solicitudes/cartaLaboral/cartaLaboral.component';
+import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home',pathMatch:'full'},
@@ -33,14 +26,10 @@ const routes: Routes = [
   },
   {path: 'upload', component: UploadComponent},
   {path: 'calendario', component: CalendarioComponent},
-  {path: 'solicitudes', component: SolicitudesComponent},
-  {path: 'auxilios', component: AuxiliosComponent},
-  {path: 'cesantias', component: CesantiasComponent},
-  {path: 'cartaLaboral', component: CartaLaboralComponent},
-  {path: 'licencias', component: LicenciasComponent},
-  {path: 'permisos', component: PermisosComponent},
-  {path: 'prestamos', component: PrestamoComponent},
-  {path: 'vacaciones', component: VacacionesComponent},
+  {
+    path:'solicitudes',
+    loadChildren: () => import('./components/solicitudes/solicitudes.module').then(m => m.SolicitudesModule)
+  },
   {path: 'login', component: LoginComponent},
   {path: 'logout', component: LogoutComponent},
   {path: 'register', component: RegisterComponent,},
@@ -53,6 +42,7 @@ const routes: Routes = [
   {path: 'editar/:id', component: EditarComponent},
   {path: 'resetPass/:id',component: ChangePassComponent},
   {path: 'profileUser/:id',component: ProfileUserComponent},
+  {path: 'notificaciones',component: NotificacionesComponent},
 
 ];
 
