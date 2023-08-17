@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DatosSesionModel } from 'src/app/models/datos-sesion.model';
+import { SeguridadService } from 'src/app/services/seguridad.service';
+import { SessionStorageService } from 'src/app/services/sessionStorage.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,6 +15,12 @@ export class LicenciasComponent implements OnInit {
   formularioLicencias !: FormGroup;
   conRegreso: string = 'No';
 
+  dataSesion : DatosSesionModel | null = null;
+  idUser !: string;
+  nombreUser !: string;
+  cedulaUser !: string;
+  sucursal !: string;
+
   selectFile1 !: File;
   selectFile2 !: File;
   selectFile3 !: File;
@@ -19,6 +28,8 @@ export class LicenciasComponent implements OnInit {
 
   constructor(
     private formBuild: FormBuilder,
+    private sessionStorage : SessionStorageService,
+    private seguridadService : SeguridadService
     ) { }
 
   ngOnInit(): void {
@@ -47,6 +58,32 @@ export class LicenciasComponent implements OnInit {
       permisoVotacion:['',Validators.required],
       calamidad:['',Validators.required],
       respuestaOtros:['',Validators.required]
+    });
+    
+    this.getDataUser();
+  }
+
+  getDataUser() {
+    this.dataSesion = this.sessionStorage.ObtenerSesionInfo();
+    if (this.dataSesion) {
+      this.idUser = this.dataSesion.datos.id;
+      // console.log(this.idUser); 
+      this.cargarInfoUser();
+    }
+  }
+
+  cargarInfoUser () {
+    this.seguridadService.SolicitarUser_id(this.idUser).subscribe({
+      next: (data: any) => {
+
+        const dateToday = new Date().toISOString().split('T')[0];
+        this.formularioLicencias.controls['fechaSolicitud'].setValue(dateToday);
+        this.formularioLicencias.controls['nombre'].setValue(data.nombreCompleto);
+        this.formularioLicencias.controls['cedula'].setValue(data.usuario);       
+        this.sucursal = data.sucursal;      
+        this.formularioLicencias.controls['sucursal'].setValue(this.sucursal);
+       },
+      error: (e) => console.log(e)
     });
   }
 

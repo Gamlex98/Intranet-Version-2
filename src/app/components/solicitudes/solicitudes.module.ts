@@ -41,12 +41,12 @@ import { SolicitudesRoutingModule } from './solicitudes-routing.module';
     FormsModule,
     ReactiveFormsModule,
     SolicitudesRoutingModule,
-    DatePipe
 
   ],
 
   providers: [ 
     Validators, 
+    DatePipe
 ],
 })
 export class SolicitudesModule { }

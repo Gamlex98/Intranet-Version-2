@@ -16,6 +16,7 @@ import { ChangePassComponent } from './components/perfilUser/changePass/changePa
 import { ProfileUserComponent } from './components/perfilUser/profileUser/profileUser.component';
 import { RegisterUserComponent } from './components/seguridad/register-user/register-user.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
+import { ControlSolicitudesComponent } from './components/notificaciones/control-solicitudes/control-solicitudes.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home',pathMatch:'full'},
@@ -43,6 +44,7 @@ const routes: Routes = [
   {path: 'resetPass/:id',component: ChangePassComponent},
   {path: 'profileUser/:id',component: ProfileUserComponent},
   {path: 'notificaciones',component: NotificacionesComponent},
+  {path: 'controlSolicitudes',component: ControlSolicitudesComponent},
 
 ];
 

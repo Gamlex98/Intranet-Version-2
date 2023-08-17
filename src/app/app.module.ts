@@ -58,6 +58,7 @@ import { EditarComponent } from './components/seguridad/editar/editar.component'
 import { ChangePassComponent } from './components/perfilUser/changePass/changePass.component';
 import { ProfileUserComponent } from './components/perfilUser/profileUser/profileUser.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
+import { ControlSolicitudesComponent } from './components/notificaciones/control-solicitudes/control-solicitudes.component';
 
 
 @NgModule({
@@ -92,7 +93,8 @@ import { NotificacionesComponent } from './components/notificaciones/notificacio
     EditarComponent,
     ChangePassComponent,
     ProfileUserComponent,
-    NotificacionesComponent
+    NotificacionesComponent,
+    ControlSolicitudesComponent
   ],
   imports: [
     BrowserModule,

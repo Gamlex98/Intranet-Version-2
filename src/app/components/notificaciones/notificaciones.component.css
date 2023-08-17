@@ -26,13 +26,13 @@
 }
 
 .notifications {
-    position: relative;
+    position: absolute;
     background: #f7f4f4;
     border: 1px solid #dcdcdc;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transform: translateX(-450px); /* Desplaza horizontalmente */
-    z-index: 10;
+    transform: translateX(-50px); /* Desplaza horizontalmente */
+    z-index: 5;
   }
   
   
@@ -40,15 +40,15 @@
 .show-notifications:hover #icon-bell,
 .show-notifications:focus #icon-bell,
 .show-notifications.active #icon-bell {
-    fill: rgb(11, 107, 11);
+    fill: rgb(5, 240, 56);
 }
 
 #icon-bell {
-    fill: rgb(12, 133, 32);
+    fill: rgb(9, 177, 73);
 }
 
 .show-notifications:hover svg {
-    fill: rgb(6, 80, 6);
+    fill: rgb(16, 226, 16);
 }
 
 /* Estilos para el contador de notificaciones */

@@ -8,17 +8,16 @@ import { SessionStorageService } from 'src/app/services/sessionStorage.service';
   styleUrls: ['./notificaciones.component.css']
 })
 export class NotificacionesComponent implements OnInit {
-  @HostListener('document:click', ['$event'])
   
   items: any[] = [];
   showNotifications: boolean = false;
 
-  constructor(
+  constructor (
     private sessionStorage: SessionStorageService,
     private seguridadService : SeguridadService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     const today = new Date();
     this.items = this.generateItems(today);
   }
@@ -40,7 +39,7 @@ export class NotificacionesComponent implements OnInit {
 
   randomDate(start?: Date, end?: Date): Date {
     start = start || new Date(2014, 0, 1);
-    end = end || new Date(2015, 0, 1);
+    end = end || new Date(2023, 0, 1);
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
   }
 
@@ -51,7 +50,8 @@ export class NotificacionesComponent implements OnInit {
     }
   }
 
-  obtenerData () {      
+  obtenerData () {
+
   }
   
 }

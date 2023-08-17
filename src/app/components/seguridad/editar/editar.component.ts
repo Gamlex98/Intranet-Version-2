@@ -57,7 +57,7 @@ export class EditarComponent implements OnInit {
   //Método para que los parámetros del formulario se inicialicen
   iniciarFormulario() {
     //captura los datos ingresados en el formulario
-
+    
     //Llama Servicio para extraer de la BD el usuario a reset password
     //  console.log("this.route.snapshot.params[id]: " + this.route.snapshot.params["id"]);
 

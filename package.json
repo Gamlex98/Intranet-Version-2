@@ -66,6 +66,7 @@
     "@types/jasmine": "~4.3.5",
     "@types/jest": "^29.5.3",
     "@types/jszip": "^3.4.1",
+    "@types/mocha": "^10.0.1",
     "@types/mongodb": "^4.0.7",
     "@types/node": "^20.4.9",
     "@types/pdfmake": "^0.2.2",

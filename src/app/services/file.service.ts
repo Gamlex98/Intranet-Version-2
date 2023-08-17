@@ -9,7 +9,7 @@ import { logoModel } from '../models/logo.model';
 })
 export class FileService {
 
-  urlLoopback = 'http://172.16.1.249:3030';
+  urlLoopback = 'http://172.16.1.249:3033';
   // UrlDocumento = "http://172.16.1.24:88/";
   urlNas = 'http://172.16.1.24:8095/cgi-bin/authLogin.cgi?';
   

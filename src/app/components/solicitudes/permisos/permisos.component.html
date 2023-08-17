@@ -4,52 +4,20 @@
   <div class="container">
     <form [formGroup]="formularioPermisos" (ngSubmit)="enviarFormulario()">
       <div class="form-group">
-        <label for="fechaSolicitud" class="letraElegante" >Fecha de solicitud</label>
-        <input type="date" class="form-control" style="width: 250px;" formControlName="fechaSolicitud">
+        <label for="fechaSolicitud" class="letraElegante" >Fecha de solicitud:</label>
+        <input type="date" class="form-control" style="width: 250px;" formControlName="fechaSolicitud" readonly>
       </div>
       <div class="form-group">
-        <label for="nombre" class="letraElegante">Nombre</label>
-        <input type="text" class="form-control" formControlName="nombre">
+        <label for="nombre" class="letraElegante">Nombre:</label>
+        <input type="text" class="form-control" formControlName="nombre" readonly>
       </div>
       <div class="form-group">
-        <label for="cedula" class="letraElegante">Cédula</label>
-        <input type="text" class="form-control" formControlName="cedula" style="width: 250px;">
+        <label for="cedula" class="letraElegante">Cédula:</label>
+        <input type="text" class="form-control" formControlName="cedula" style="width: 250px;" readonly>
       </div>
       <div class="form-group">
-        <label class="letraElegante">Seleccione Sucursal:</label>
-        <select class="form-control" id="sucursal">
-          <option value="" disabled selected>Seleccione sucursal...</option>
-          <option value="1">S01</option>
-          <option value="2">S02</option>
-          <option value="3">S03</option>
-          <option value="4">S04</option>
-          <option value="5">S05</option>
-          <option value="6">S06</option>
-          <option value="7">S07</option>
-          <option value="8">S08</option>
-          <option value="9">S09</option>
-          <option value="10">S10</option>
-          <option value="11">S11</option>
-          <option value="12">S12</option>
-          <option value="13">S13</option>
-          <option value="14">S14</option>
-          <option value="15">S15</option>
-          <option value="16">S16</option>
-          <option value="17">S17</option>
-          <option value="18">S18</option>
-          <option value="19">S19</option>
-          <option value="20">S20</option>
-          <option value="21">S21</option>
-          <option value="23">S23</option>
-          <option value="24">S24</option>
-          <option value="25">S25</option>
-          <option value="26">S26</option>
-          <option value="27">S27</option>
-          <option value="28">S28</option>
-          <option value="29">S29</option>
-          <option value="30">S30</option>
-          <option value="32">S32</option>
-        </select>
+        <label for="sucursal" class="letraElegante">Sucursal:</label>
+        <input type="text" class="form-control" formControlName="sucursal" style="width: 250px;" readonly>
       </div>
       <br>
       <div class="form-group">
@@ -69,12 +37,12 @@
 
         <div class="form-group">
           <label for="fechaLicencia">Fecha de licencia</label>
-          <input type="date" class="form-control" formControlName="fechaLicencia">
+          <input type="date" class="form-control" formControlName="fechaLicencia" style="width: 250px;">
         </div>
 
         <div class="form-group">
           <label for="horaSalida">Hora de salida</label>
-          <input type="time" class="form-control" formControlName="horaSalida">
+          <input type="time" class="form-control" formControlName="horaSalida" style="width: 250px;">
         </div>
 
         <div class="form-group">
@@ -93,7 +61,7 @@
 
         <div class="form-group" *ngIf="conRegreso === 'Si'">
           <label for="horaRegreso">Hora de regreso</label>
-          <input type="time" class="form-control" formControlName="horaRegreso">
+          <input type="time" class="form-control" formControlName="horaRegreso" style="width: 250px;">
         </div>
 
       </div>
@@ -102,15 +70,15 @@
       <div formGroupName="opcionB" *ngIf="formularioPermisos.get('opcion')?.value === 'opcionB'">
         <div class="form-group">
           <label for="fechaInicio">Fecha de inicio</label>
-          <input type="date" class="form-control" formControlName="fechaInicio">
+          <input type="date" class="form-control" formControlName="fechaInicio" style="width: 250px;">
         </div>
         <div class="form-group">
           <label for="fechaTerminacion">Fecha de terminación</label>
-          <input type="date" class="form-control" formControlName="fechaTerminacion">
+          <input type="date" class="form-control" formControlName="fechaTerminacion" style="width: 250px;">
         </div>
         <div class="form-group">
           <label for="fechaReintegrarse">Fecha en la que debe reintegrarse a las funciones</label>
-          <input type="date" class="form-control" formControlName="fechaReintegrarse">
+          <input type="date" class="form-control" formControlName="fechaReintegrarse" style="width: 250px;">
         </div>
         <!-- Agrega más campos según tus necesidades -->
       </div>
@@ -135,7 +103,7 @@
       <div *ngIf="formularioPermisos.get('tipoPermiso')?.value === 'Permiso por temas de salud'">
         <!-- Select para la relación con el permiso Salud  -->
         <label for="relacion" class="letraElegante">Selecciona una de las opciones:</label> <br>
-        <select class="form-control" id="permisoSalud" formControlName="tipoPermisoSalud" required>
+        <select class="form-control" id="permisoSalud" formControlName="tipoPermisoSalud" required style="width: 250px;">
           <option value="" disabled selected>Seleccione...</option>
           <option value="Citas médicas"> Citas médicas </option>
           <option value="Urgencias médicas"> Urgencias médicas </option>
@@ -436,7 +404,7 @@
 
         <div class="form-group">
           <label for="fechaSolicitud" class="letraElegante">Día correspondiente a el :</label>
-          <input type="date" class="form-control" formControlName="fechaSolicitud">
+          <input type="date" class="form-control" formControlName="fechaSolicitud" style="width: 250px;">
         </div>
 
         <label class="letraElegante" style="width: 600px;text-align: justify;"> El Formato de licencias y permisos debe

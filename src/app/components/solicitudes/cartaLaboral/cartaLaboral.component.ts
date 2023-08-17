@@ -33,10 +33,10 @@ export class CartaLaboralComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.obtenerDatosSesion();
-    this.processWord();
   }
 
   ngAfterViewInit(): void {
+    this.processWord();
   }
 
   obtenerDatosSesion(): void {
