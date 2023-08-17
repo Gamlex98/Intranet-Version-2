@@ -1,38 +1,47 @@
 
 <h1 class="titulo"> Solicitud Vacaciones </h1>
 
-<div class="formulario-container" style="margin-left: 300px;">
+<div class="formulario-container" style="margin-left: 30%;">
   <div class="container">
-    <form [formGroup]="formularioVacaciones" (ngSubmit)="enviarFormulario()">
+    <form [formGroup]="formularioVacaciones" (ngSubmit)="enviarInfo()">
 
       <div class="form-group">
         <label for="fechaSolicitud" class="letraElegante">Fecha de solicitud:</label>
-        <input type="date" class="form-control" formControlName="fechaSolicitud" style="width: 250px;" readonly>
+        <input type="date" class="form-control read-only" formControlName="fechaSolicitud" style="width: 250px;" readonly>
       </div>
 
       <div class="form-group">
         <label for="nombre" class="letraElegante">Nombre: </label>
-        <input type="text" class="form-control" formControlName="nombre" readonly>
+        <input type="text" class="form-control read-only" formControlName="nombre" readonly>
       </div>
 
       <div class="form-group">
         <label for="cedula" class="letraElegante" >Cédula: </label>
-        <input type="text" class="form-control" formControlName="cedula" style="width: 250px;" readonly>
+        <input type="text" class="form-control read-only" formControlName="cedula" style="width: 250px;" readonly>
       </div>
 
       <div class="form-group">
         <label for="nombre" class="letraElegante"> Ciudad: </label>
-        <input type="text" class="form-control" formControlName="ciudad" readonly>
+        <input type="text" class="form-control read-only" formControlName="ciudad" readonly>
       </div>
 
       <div class="form-group">
         <label for="nombre" class="letraElegante"> Sucursal: </label>
-        <input type="text" class="form-control" formControlName="sucursal" readonly>
+        <input type="text" class="form-control read-only" formControlName="sucursal" readonly>
       </div>
 
       <div class="form-group">
         <label for="nombre" class="letraElegante"> Cargo: </label>
-        <input type="text" class="form-control" formControlName="cargo" readonly>
+        <input type="text" class="form-control read-only" formControlName="cargo" readonly>
+      </div>
+
+      <div class="form-group">
+        <label for="periodo" class="letraElegante" style="margin-bottom: 10px;">Periodo :</label>
+        <select class="form-control" formControlName="periodo" id="periodo" style="width: 250px;">
+          <option value="">Seleccione...</option>
+          <option value="1"> 1 </option>
+          <option value="2"> 2 </option>
+        </select>
       </div>
 
       <div class="form-group">
@@ -45,12 +54,52 @@
       </div>
       <div class="form-group">
         <label for="fechaReintegrarse" class="letraElegante">Fecha en la que debe reintegrarse a las funciones:</label>
-        <input type="date" class="form-control" formControlName="fechaReintegrarse" style="width: 250px;" readonly>
+        <input type="date" class="form-control read-only" formControlName="fechaReintegro" style="width: 250px;" readonly>
       </div>
 
       <div class="form-group">
-        <label for="diasSolicitados" class="letraElegante"> Dias Solicitados: </label>
-        <input type="text" class="form-control" formControlName="diasSolicitados" style="width: 250px;" readonly>
+        <label for="diaSolicitados" class="letraElegante"> Dias Solicitados: </label>
+        <input type="text" class="form-control read-only" formControlName="diaSolicitados" id="dias" style="width: 250px;" readonly>
+      </div>
+
+      <div *ngIf="diferenciaDias < 15">
+        <div class="form-group">
+          <label class="letraElegante"> Deseas que los dias restantes sean remunerados ? ( {{15 - diferenciaDias}} dias )</label>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="Si" formControlName="opcionCompensar">
+            <label class="form-check-label">Si</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="No" formControlName="opcionCompensar">
+            <label class="form-check-label">No</label>
+          </div>
+        </div>
+      </div>
+
+        <div *ngIf="formularioVacaciones.get('opcionCompensar')?.value === 'Si'">
+          <div class="form-group">
+            <label for="nombre" class="letraElegante"> Dias para remunerar : </label>
+            <input type="text" class="form-control read-only" formControlName="diasRemunerados" readonly>
+          </div>
+        </div>
+
+        <div *ngIf="formularioVacaciones.get('opcionCompensar')?.value === 'No'">
+          <div class="form-group">
+            <label for="nombre" class="letraElegante"> Dias por compensar en el periodo actual : </label>
+            <input type="text" class="form-control read-only" formControlName="diasCompensados" readonly>
+          </div>
+        </div>
+
+      <div class="form-group">
+        <label class="letraElegante"> Tu jefe inmediato autorizo el permiso ?</label>
+        <div class="form-check">
+          <input type="radio" class="form-check-input" value="Si" formControlName="autorizaJefe" id="autorizaJefe">
+          <label class="form-check-label">Si</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" class="form-check-input" value="No" formControlName="autorizaJefe" id="autorizaJefe">
+          <label class="form-check-label">No</label>
+        </div>
       </div>
 
       <div style="margin-top: 35px;">

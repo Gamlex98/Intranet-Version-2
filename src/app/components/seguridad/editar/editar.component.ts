@@ -64,6 +64,7 @@ export class EditarComponent implements OnInit {
     this.servicioSeguridad.SolicitarUser_id(this.id).subscribe({
       next: (data: any) => {
         console.log('Data:',data);
+        console.log('Fecha:',data.fechaNacimiento.typeof);
         this.usuario = data.usuario;
         this.formularioEditarUser.controls['nombreCompleto'].setValue(data.nombreCompleto);
         this.formularioEditarUser.controls['correo'].setValue(data.correo);
@@ -188,9 +189,4 @@ export class EditarComponent implements OnInit {
     return text;
   }
 
-  capturarSelectFecha(): string {
-    const e = document.getElementById("idFecha") as HTMLSelectElement;
-    const text = e.options[e.selectedIndex].text;
-    return text;
-  }
 }

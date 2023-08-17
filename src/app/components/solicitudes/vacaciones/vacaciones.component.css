@@ -1,3 +1,10 @@
+
+.read-only {
+  background-color: #f0f0f0; /* Cambia este color según tus preferencias */
+  color: #666666; /* Cambia este color según tus preferencias */
+}
+
+
 .titulo {
     text-align: center;
     font-family: 'Roboto', sans-serif;

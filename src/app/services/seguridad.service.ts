@@ -6,6 +6,7 @@ import { DatosSesionModel } from '../models/datos-sesion.model';
 import { userModel } from '../models/user.model';
 import { RolModel } from '../models/rol.model';
 import { SessionStorageService } from './sessionStorage.service';
+import { vacacionesModel } from '../models/vacaciones.model';
 
 @Injectable({
   providedIn: 'root',
@@ -121,6 +122,29 @@ export class SeguridadService {
       {}
     );
   }
+
+  postSolicitudVacaciones(datos: vacacionesModel): Observable<any> {
+    const serializedData = {
+      usuario: datos.usuario,
+      fechaSolicitud: datos.fechaSolicitud ? datos.fechaSolicitud.toISOString() : '',
+      fechaInicio: datos.fechaInicio ? datos.fechaInicio.toISOString() : '',
+      fechaTerminacion: datos.fechaTerminacion ? datos.fechaTerminacion.toISOString() : '',
+      fechaReintegro: datos.fechaReintegro ? datos.fechaReintegro.toISOString() : '',
+      diasSolicitados: datos.diasSolicitados,
+      periodo: datos.periodo,
+      compensacion: datos.compensacion,
+      diasCompensados: datos.diasCompensados,
+      diasRemunerados: datos.diasRemunerados,
+      autorizaJefe: datos.autorizaJefe
+    };
+  
+    console.log("Información a enviar al servicio:", serializedData);
+  
+    return this.http.post(`${this.urlLoopback}/vacaciones`, serializedData);
+  }
+  
+  
+
 
   CrearUsuarioService(datos: userModel): Observable<any> {
     //console.log("user.usuario: " + user.usuario);
